@@ -1,0 +1,60 @@
+* {
+    margin: 0; /* 清除所有元素的外边距 */
+    padding: 0; /* 清除所有元素的内边距 */
+}
+
+body {
+    height: 100vh; /* 设置页面高度为视口高度 */
+    display: flex; /* 使用 flexbox 布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    position: relative; /* 相对定位，便于子元素绝对定位 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    perspective: 1300px; /* 设置 3D 透视效果 */
+}
+
+#videofilm {
+    width: 100%; /* 视频宽度填满全屏 */
+    height: auto; /* 高度自动调节 */
+    position: fixed; /* 固定定位，始终在视口中 */
+    z-index: -1; /* 设置层级，使其在其他元素之下 */
+}
+
+
+
+:root {
+    --margin-top: 0; /* 自定义属性，默认上边距为0 */
+    --margin-left: 0; /* 自定义属性，默认左边距为0 */
+    --animation-duration: 0s; /* 自定义属性，动画持续时间为0秒 */
+    --animation-delay: 0s; /* 自定义属性，动画延迟为0秒 */
+}
+
+div {
+    transform-style: preserve-3d; /* 保持 3D 变换效果 */
+}
+
+.word-box,
+.word-box .word {
+    position: absolute; /* 绝对定位 */
+    animation: rotY 0s linear infinite; /* 无限旋转动画 */
+    animation-duration: var(--animation-duration); /* 使用自定义动画持续时间 */
+    animation-delay: var(--animation-delay); /* 使用自定义动画延迟 */
+}
+
+.word-box {
+    margin-top: var(--margin-top); /* 使用自定义上边距 */
+}
+
+.word-box .word {
+    margin-left: var(--margin-left); /* 使用自定义左边距 */
+}
+
+.word-box .word {
+    animation-duration: reverse; /* 反向动画持续时间 */
+}
+
+@keyframes rotY {
+    to {
+        transform: rotateY(360deg); /* 360度旋转效果 */
+    }
+}
